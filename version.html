@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>Selector de Versión Java</title>
+    <script src="https://kit.fontawesome.com/3f5f7fc3e0.js" crossorigin="anonymous"></script>
+    <title>Java</title>
     <script>
         function redirectToDocs() {
             const version = document.getElementById('javaVersion').value;
@@ -23,11 +24,22 @@ Si necesitas añadir más versiones de Java, simplemente agrega más opciones de
 
 -->
 <body>
-    <div class="container mt-5">
-        <h1>Selector de Versión Java</h1>
+
+    <div class="container">
+
+         <h1><i class="fa-brands fa-java"></i> JAVA</h1>
+        <h2>ENLACES</h2>
+   <ul>
+       <li>  <a href="https://www.geeksforgeeks.org/java/">Tutorial de Java</a></li>
+   <li><a href="https://ns2.elhacker.net/descargas/manuales/Lenguajes%20de%20Programacion/Java/Ejercicios-de-Programacion-en-Java.pdf">Ejercicios de Programación</a></li>
+       <li>  <a href="https://dsrl.eu/courses/sd/materials/la10.pdf">REST</a></li>
+   
+    </ul>
+   
+        <h2>Documentación (API JAVA) Oficial</h2>
         <form id="versionForm" onsubmit="event.preventDefault(); redirectToDocs();">
             <div class="mb-3">
-                <label for="javaVersion" class="form-label">Versión de Java:</label>
+                <label for="javaVersion" class="form-label">Versión:</label>
                 <select class="form-select" id="javaVersion">
                     <option value="" selected>Selecciona una versión</option>
                     <option value="7">Java 7</option>
@@ -38,15 +50,35 @@ Si necesitas añadir más versiones de Java, simplemente agrega más opciones de
                     <option value="12">Java 12</option>
                     <option value="13">Java 13</option>
                     <option value="14">Java 14</option>
-                    <option value="14">Java 17</option>
-                    <option value="14">Java 20</option>
+                    <option value="17">Java 17</option>
+                    <option value="20">Java 20</option>
                     <!-- Puedes agregar más versiones según sea necesario -->
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Ir a Documentación</button>
         </form>
-    </div>
+
+
+        <h2>Chuletas</h2>
+        <ul>
+            <a href="https://cheatography.com/taotao/cheat-sheets/jsp/">JSP (Session vs Cookie </a>
+            <a href="https://gist.github.com/splacentino/672b3a32ca1877d68d05">Java expression evaluated at run time. </a>
+        </ul>
+
+
+        <h2>Chuletas</h2>
+        <ul>
+            <li><a href="https://cheatography.com/taotao/cheat-sheets/jsp/">JSP (Session vs Cookie </a></li>
+            <li><a href="https://gist.github.com/splacentino/672b3a32ca1877d68d05">Java expression evaluated at run time. </a></li>
+
+            <li><a href="https://cits5501.github.io/exam/junit-5.pdf">JUnit5 </a></li>
+        </ul>
+
+
+   </div>
+
 </body>
 
 </html>
+
 
