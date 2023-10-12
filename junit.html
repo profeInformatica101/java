@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen JUnit para Aplicaciones Web en Servidor</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3f5f7fc3e0.js" crossorigin="anonymous"></script>
+    <style>
+        /* Tamaños de fuente por defecto */
+        body {
+            font-size: 16px;
+        }
+
+        /* Si la pantalla es pequeña */
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+        }
+
+        /* Si la pantalla es muy pequeña */
+        @media (max-width: 576px) {
+            body {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Resumen JUnit para Desarrollo en Aplicaciones Web en Servidor</h2>
+    <p>Este documento está diseñado para estudiantes del grupo de formación profesional especializado en aplicaciones web en entorno servidor.</p>
+
+    <div class="accordion" id="junitAccordion">
+
+        <!-- Configuración para Proyectos Web -->
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne">
+                        <i class="fas fa-cogs"></i> Configuración para Proyectos Web
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#junitAccordion">
+                <div class="card-body">
+
+                            <p>Si estás trabajando en un proyecto Maven para una aplicación web, no olvides incluir la dependencia JUnit en tu archivo <code>pom.xml</code> para comenzar con las pruebas:</p>
+                            <pre><code>
+                    &lt;dependency&gt;
+                    &lt;groupId&gt;junit&lt;/groupId&gt;
+                    &lt;artifactId&gt;junit&lt;/artifactId&gt;
+                    &lt;version&gt;4.12&lt;/version&gt;
+                    &lt;scope&gt;test&lt;/scope&gt;
+                    &lt;/dependency&gt;
+                            </code></pre>
+                            <p>Para aplicaciones web, es esencial probar las interacciones del servidor, los controladores, modelos y otras componentes del backend.</p>
+                      
+                </div>
+            </div>
+        </div>
+
+        <!-- Anotaciones JUnit -->
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo">
+                        <i class="fas fa-tags"></i> Anotaciones JUnit
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#junitAccordion">
+                <div class="card-body">
+                    <!-- Contenido del acordeón 2 -->
+            <p>Las anotaciones en JUnit te ayudan a definir cómo se comportan tus pruebas y en qué momento se ejecutan ciertos métodos. Aquí te presento algunas de las más utilizadas:</p>
+            <ul>
+                <li><strong>@Test</strong>: Define un método como un caso de prueba.</li>
+                <li><strong>@Before</strong>: Se ejecuta antes de cada prueba.</li>
+                <li><strong>@After</strong>: Se ejecuta después de cada prueba.</li>
+                <li><strong>@BeforeClass</strong>: Se ejecuta una vez antes de iniciar todos los métodos de prueba.</li>
+                <li><strong>@AfterClass</strong>: Se ejecuta una vez después de finalizar todos los métodos de prueba.</li>
+                <li><strong>@Ignore</strong>: Ignora el método como caso de prueba.</li>
+            </ul>
+            <p>Estas anotaciones son esenciales para organizar y estructurar tus pruebas, asegurando que se ejecuten en el orden y momento adecuado.</p>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Aserciones JUnit en Web -->
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree">
+                        <i class="fas fa-check-circle"></i> Aserciones JUnit en Web
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#junitAccordion">
+                <div class="card-body">
+                    <p>Las aserciones son fundamentales en las pruebas unitarias, ya que nos permiten verificar que un método o función está retornando el resultado esperado. JUnit proporciona varios métodos para realizar estas comprobaciones en tus pruebas:</p>
+                    <ul>
+                        <li><strong>assertEquals</strong>: Comprueba si dos valores son iguales. Es útil para verificar que el resultado de una función coincide con el valor esperado.</li>
+                        <li><strong>assertTrue</strong>: Verifica que una condición sea verdadera. Puede ser utilizado para comprobar, por ejemplo, que un usuario esté autenticado.</li>
+                        <li><strong>assertFalse</strong>: Verifica que una condición sea falsa.</li>
+                        <li><strong>assertNotNull</strong>: Comprueba que un objeto no sea null. Útil para verificar, por ejemplo, que un objeto de usuario se haya recuperado correctamente de una base de datos.</li>
+                        <li><strong>assertNull</strong>: Verifica que un objeto sea null.</li>
+                        <li><strong>assertSame</strong>: Comprueba que dos referencias de objeto apunten al mismo objeto.</li>
+                        <li><strong>assertNotSame</strong>: Comprueba que dos referencias de objeto no apunten al mismo objeto.</li>
+                    </ul>
+                    <p>Estas aserciones te ayudarán a asegurarte de que tu lógica de servidor y las interacciones con bases de datos, autenticación y otros procesos del backend estén funcionando correctamente.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prueba de Excepciones en Web -->
+        <div class="card">
+            <div class="card-header" id="headingFour">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFour">
+                        <i class="fas fa-exclamation-triangle"></i> Prueba de Excepciones en Web
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#junitAccordion">
+                <div class="card-body">
+                    <!-- Contenido del acordeón 4 -->
+                    <!-- Contenido del acordeón 4 -->
+            <p>En el desarrollo de aplicaciones web, es común enfrentar errores y excepciones, ya sean errores del servidor, problemas con solicitudes HTTP, errores de base de datos, entre otros. Estos errores pueden interrumpir la experiencia del usuario y causar problemas en la aplicación.</p>
+
+            <p>JUnit ofrece herramientas para probar estas excepciones de manera efectiva, permitiéndonos simular ciertos escenarios y verificar que nuestra aplicación maneja los errores adecuadamente. Una de las técnicas más comunes es el uso de la propiedad <code>expected</code> en la anotación <code>@Test</code>.</p>
+
+            <pre><code>
+@Test(expected = MiExcepcionPersonalizada.class)
+public void miMetodoDePrueba() {
+    // código que se espera que lance MiExcepcionPersonalizada
+}
+            </code></pre>
+
+            <p>Con el código anterior, esperamos que el método <code>miMetodoDePrueba</code> lance una excepción de tipo <code>MiExcepcionPersonalizada</code>. Si se lanza dicha excepción, la prueba pasará; de lo contrario, fallará.</p>
+
+            <p>Es esencial manejar y probar adecuadamente las excepciones en las aplicaciones web para garantizar una operación suave y proporcionar retroalimentación adecuada a los usuarios o tomar medidas correctivas en caso de errores.</p>
+     <!-- Pruebas para Servlets -->
+<div class="card">
+    <div class="card-header" id="headingFive">
+        <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFive">
+                <i class="fas fa-server"></i> Pruebas para Servlets
+            </button>
+        </h5>
+    </div>
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#junitAccordion">
+        <div class="card-body">
+            <!-- Contenido del acordeón 5 -->
+            <p>Probar un Servlet implica simular un entorno que emule las solicitudes y respuestas HTTP. JUnit, junto con Mockito, es una herramienta popular para hacer esto. A continuación, un simple ejemplo:</p>
+
+            <pre><code>
+import static org.mockito.Mockito.*;
+import javax.servlet.http.*;
+import org.junit.Test;
+
+public class MiServletTest {
+
+    @Test
+    public void pruebaMiServlet() throws Exception {
+        HttpServletRequest request = mock(HttpServletRequest.class);       
+        HttpServletResponse response = mock(HttpServletResponse.class);    
+
+        when(request.getParameter("miParametro")).thenReturn("valor");
+
+        new MiServlet().doGet(request, response);
+
+        verify(response).setContentType("text/html");
+        // Más aserciones o verificaciones aquí
+    }
+}
+            </code></pre>
+            <p>Este código es una representación básica de cómo se pueden simular solicitudes y respuestas HTTP usando Mockito para probar un Servlet.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Pruebas para JSP -->
+<div class="card">
+    <div class="card-header" id="headingSix">
+        <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSix">
+                <i class="fas fa-file-code"></i> Pruebas para JSP
+            </button>
+        </h5>
+    </div>
+    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#junitAccordion">
+        <div class="card-body">
+            <!-- Contenido del acordeón 6 -->
+            <p>Las pruebas directas en páginas JSP son complicadas debido a su naturaleza integrada con HTML y Java. Sin embargo, se pueden probar los fragmentos de código Java dentro de JSP separadamente o usar herramientas de integración como Selenium para pruebas de interfaz de usuario. Aquí un enfoque con Selenium:</p>
+
+            <pre><code>
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.junit.Test;
+
+public class MiJSPPaginaTest {
+
+    @Test
+    public void pruebaTituloJSP() {
+        WebDriver driver = new FirefoxDriver();
+        driver.get("http://miweb.com/miJSP.jsp");
+
+        WebElement title = driver.findElement(By.tagName("h1"));
+
+        assertEquals("Mi Título Esperado", title.getText());
+
+        driver.quit();
+    }
+}
+            </code></pre>
+            <p>Este código es un ejemplo básico de cómo usar Selenium para probar una página JSP, verificando el contenido de un elemento del título.</p>
+        </div>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- Fin del acordeón -->
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
