@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Selector de Versión Java</title>
+    <script>
+        function redirectToDocs() {
+            const version = document.getElementById('javaVersion').value;
+            if (version) {
+                window.location.href = `https://docs.oracle.com/en/java/javase/${version}/docs/api/index.html`;
+            }
+        }
+    </script>
+</head>
+<!--- 
+
+En este código, cuando el formulario es enviado, el evento submit es prevenido de su comportamiento por defecto (que es recargar la página) usando event.preventDefault();. Luego, se ejecuta la función redirectToDocs que redirige al usuario a la URL de la documentación correspondiente a la versión de Java seleccionada.
+
+Si necesitas añadir más versiones de Java, simplemente agrega más opciones dentro del elemento <select>.
+
+-->
+<body>
+    <div class="container mt-5">
+        <h1>Selector de Versión Java</h1>
+        <form id="versionForm" onsubmit="event.preventDefault(); redirectToDocs();">
+            <div class="mb-3">
+                <label for="javaVersion" class="form-label">Versión de Java:</label>
+                <select class="form-select" id="javaVersion">
+                    <option value="" selected>Selecciona una versión</option>
+                    <option value="7">Java 7</option>
+                    <option value="8">Java 8</option>
+                    <option value="9">Java 9</option>
+                    <option value="10">Java 10</option>
+                    <option value="11">Java 11</option>
+                    <option value="12">Java 12</option>
+                    <option value="13">Java 13</option>
+                    <option value="14">Java 14</option>
+                    <option value="14">Java 17</option>
+                    <option value="14">Java 20</option>
+                    <!-- Puedes agregar más versiones según sea necesario -->
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Ir a Documentación</button>
+        </form>
+    </div>
+</body>
+
+</html>
+
