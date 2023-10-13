@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acordeones con Bootstrap y FontAwesome</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Enlace a FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <!-- Incluyendo jQuery y Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/3f5f7fc3e0.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h1>Servlet <i class="fas fa-server"></i></h1>
+        <div class="accordion" id="infoAccordion">
+            <!-- Servlets -->
+            <div class="card">
+                <div class="card-header">
+                    <a class="card-link" data-toggle="collapse" href="#collapseServlets">
+                        1. Introducción a Servlets <i class="fas fa-info-circle"></i>
+                    </a>
+                </div>
+                <div id="collapseServlets" class="collapse" data-parent="#infoAccordion">
+                    <div class="card-body">
+                        <p>
+                            Un Servlet es una clase Java que maneja las solicitudes de los clientes, procesa los datos y envía una respuesta.
+                        </p>
+                        <p>
+                            Ejemplo práctico: Creación de un Servlet que responde con un mensaje de bienvenida.
+                        </p>
+                        <pre><code>
+    public class WelcomeServlet extends HttpServlet {
+        protected void doGet(HttpServletRequest request, HttpServletResponse response)
+                throws ServletException, IOException {
+            response.getWriter().write("Bienvenido al Servlet!");
+        }
+    }
+                        </code></pre>
+                        <p>
+                            Recuerda mapear tu Servlet en el `web.xml` o usando anotaciones `@WebServlet`.
+                        </p>
+                    </div>
+                </div>
+            </div>
+    
+ <!-- Ciclo de vida de un Servlet -->
+ <div class="card">
+    <div class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#collapseLifeCycle">
+            2. Ciclo de vida de un Servlet <i class="fas fa-life-ring"></i>
+        </a>
+    </div>
+    <div id="collapseLifeCycle" class="collapse" data-parent="#infoAccordion">
+        <div class="card-body">
+            <p>
+                El ciclo de vida de un Servlet se maneja a través de tres métodos principales.
+            </p>
+            <ul>
+                <li><code>init():</code> Se invoca una vez cuando se crea el servlet.</li>
+                <li><code>service():</code> Se invoca para cada solicitud de cliente y es responsable de manejar todos los métodos de solicitud (GET, POST, etc.).</li>
+                <li><code>destroy():</code> Se invoca una vez antes de destruir el servlet.</li>
+            </ul>
+            <p>
+                Ejemplo práctico: Crear un Servlet que registre en la consola del servidor cada vez que es inicializado, sirve una solicitud y es destruido.
+            </p>
+            <pre><code>
+public class LifeCycleExampleServlet extends HttpServlet {
+public void init() throws ServletException {
+System.out.println("Servlet initialized");
+}
+
+protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+System.out.println("Servlet serving request");
+response.getWriter().write("Check server logs for lifecycle events!");
+}
+
+public void destroy() {
+System.out.println("Servlet destroyed");
+}
+}
+            </code></pre>
+        </div>
+    </div>
+</div>
+
+
+  <!-- Servlets y JSP -->
+  <div class="card">
+    <div class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#collapseJSP">
+            3. Integración de Servlets con JSP <i class="fas fa-link"></i>
+        </a>
+    </div>
+    <div id="collapseJSP" class="collapse" data-parent="#infoAccordion">
+        <div class="card-body">
+            <p>
+                Los Servlets pueden trabajar junto con JavaServer Pages (JSP) para generar contenido dinámico. Un Servlet puede procesar datos y luego enviar esos datos a un JSP para su presentación.
+            </p>
+            <p>
+                Ejemplo práctico: Crear un Servlet que establece un atributo en el request y lo reenvía a una página JSP que lo muestra.
+            </p>
+            <pre><code>
+// En el Servlet
+public class GreetingServlet extends HttpServlet {
+protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+request.setAttribute("greeting", "Hola desde el Servlet!");
+RequestDispatcher dispatcher = request.getRequestDispatcher("/showGreeting.jsp");
+dispatcher.forward(request, response);
+}
+}
+
+// En showGreeting.jsp
+&lt;% String greeting = (String) request.getAttribute("greeting"); %&gt;
+&lt;p&gt;&lt;%= greeting %&gt;&lt;/p&gt;
+            </code></pre>
+        </div>
+    </div>
+</div>
+        <!-- 4. Manejo de Formularios con Servlet -->
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#collapseFormHandling">
+                    4. Manejo de Formularios con Servlet <i class="fas fa-hand-paper"></i>
+                </a>
+            </div>
+            <div id="collapseFormHandling" class="collapse" data-parent="#infoAccordion">
+                <div class="card-body">
+                    <p>
+                        Los Servlets también pueden manejar datos de formularios enviados desde el cliente, utilizando los métodos <code>doPost()</code> para procesar los datos enviados a través del método POST y <code>doGet()</code> para los datos enviados a través de GET.
+                    </p>
+                    <p>
+                        Ejemplo práctico: Crear un Servlet que recibe datos desde un formulario y los muestra en la consola del servidor.
+                    </p>
+                    <pre><code>
+    // En el Servlet
+    public class FormDataServlet extends HttpServlet {
+        protected void doPost(HttpServletRequest request, HttpServletResponse response)
+                throws ServletException, IOException {
+            String name = request.getParameter("name");
+            String email = request.getParameter("email");
+            System.out.println("Name: " + name);
+            System.out.println("Email: " + email);
+        }
+    }
+                    </code></pre>
+                    <p>
+                        Asegúrate de que tu formulario HTML tiene el método y la acción configurados correctamente para enviar los datos al Servlet.
+                    </p>
+                    <pre><code>
+    <!-- En tu archivo HTML/JSP -->
+    &lt;form method="POST" action="path/to/your/servlet"&gt;
+        &lt;label for="name"&gt;Nombre:&lt;/label&gt;
+        &lt;input type="text" id="name" name="name"&gt;&lt;br&gt;
+        &lt;label for="email"&gt;Email:&lt;/label&gt;
+        &lt;input type="email" id="email" name="email"&gt;&lt;br&gt;
+        &lt;input type="submit" value="Submit"&gt;
+    &lt;/form&gt;
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- 5. Filtros en Servlets -->
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#collapseFilters">
+                    5. Filtros en Servlets <i class="fas fa-filter"></i>
+                </a>
+            </div>
+            <div id="collapseFilters" class="collapse" data-parent="#infoAccordion">
+                <div class="card-body">
+                    <p>
+                        Los filtros de Servlet permiten manipular las peticiones y respuestas para y desde los Servlets y JSP, siendo comúnmente utilizados para tareas como logging, auditoría, y validación y modificación de request y response headers.
+                    </p>
+                    <!-- Aquí podrías añadir más información y un ejemplo de código sobre cómo implementar un filtro en Servlets. -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Gestión de Sesiones -->
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#collapseSessions">
+                    6. Gestión de Sesiones <i class="fas fa-user-circle"></i>
+                </a>
+            </div>
+            <div id="collapseSessions" class="collapse" data-parent="#infoAccordion">
+                <div class="card-body">
+                    <p>
+                        La gestión de sesiones es crucial para mantener un estado entre múltiples solicitudes HTTP. Servlets proveen el objeto <code>HttpSession</code> para almacenar información sobre un usuario en particular entre varias peticiones o páginas.
+                    </p>
+                    <p>
+                        Ejemplo práctico: Establecer y obtener un atributo en el objeto HttpSession.
+                    </p>
+                    <pre><code>
+    // En el Servlet
+    public class SessionExampleServlet extends HttpServlet {
+        protected void doGet(HttpServletRequest request, HttpServletResponse response)
+                throws ServletException, IOException {
+            HttpSession session = request.getSession();
+            session.setAttribute("user", "John Doe");
+            String user = (String) session.getAttribute("user");
+            response.getWriter().write("User: " + user);
+        }
+    }
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. Cookies y Persistencia Local -->
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#collapseCookies">
+                    7. Cookies y Persistencia Local <i class="fas fa-cookie"></i>
+                </a>
+            </div>
+            <div id="collapseCookies" class="collapse" data-parent="#infoAccordion">
+                <div class="card-body">
+                    <p>
+                        Las cookies son utilizadas para almacenar pequeñas cantidades de información en el lado del cliente, lo que permite recordar al usuario y su información entre sesiones. Esto puede ser útil para recordar preferencias del usuario, por ejemplo.
+                    </p>
+                    <p>
+                        Ejemplo práctico: Crear y recuperar una cookie en un Servlet.
+                    </p>
+                    <pre><code>
+    // En el Servlet
+    public class CookieExampleServlet extends HttpServlet {
+        protected void doGet(HttpServletRequest request, HttpServletResponse response)
+                throws ServletException, IOException {
+            Cookie userCookie = new Cookie("user", "John Doe");
+            userCookie.setMaxAge(60*60*24); // Duración de 1 día
+            response.addCookie(userCookie);
+
+            Cookie[] cookies = request.getCookies();
+            for (Cookie cookie : cookies) {
+                if ("user".equals(cookie.getName())) {
+                    response.getWriter().write("User from cookie: " + cookie.getValue());
+                }
+            }
+        }
+    }
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. Ejemplo de Carrito de Compras -->
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#collapseShoppingCart">
+                    8. Ejemplo de Carrito de Compras <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
+            <div id="collapseShoppingCart" class="collapse" data-parent="#infoAccordion">
+                <div class="card-body">
+                    <p>
+                        Los Servlets pueden gestionar un carrito de compras utilizando sesiones para rastrear los productos añadidos por un usuario. Los productos pueden ser almacenados en la sesión y persistidos entre las solicitudes HTTP del usuario.
+                    </p>
+                    <p>
+                        Ejemplo práctico: Añadir un producto al carrito utilizando la gestión de sesiones.
+                    </p>
+                    <pre><code>
+    // En el Servlet
+    public class ShoppingCartServlet extends HttpServlet {
+        protected void doPost(HttpServletRequest request, HttpServletResponse response)
+                throws ServletException, IOException {
+            HttpSession session = request.getSession();
+            List&lt;String&gt; cart = (List&lt;String&gt;) session.getAttribute("cart");
+            if (cart == null) {
+                cart = new ArrayList&lt;&gt;();
+            }
+            String product = request.getParameter("product");
+            if (product != null && !product.trim().isEmpty()) {
+                cart.add(product);
+            }
+            session.setAttribute("cart", cart);
+            // Redirigir o enviar una respuesta según se desee...
+        }
+    }
+                    </code></pre>
+                    <!-- Añade detalles adicionales o ajusta los ejemplos según tu estructura y requerimientos. -->
+                </div>
+            </div>
+        </div>
+<!-- 9. Uso de Carrito de Compras con Servlets -->
+<div class="card">
+    <div class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#collapseShoppingCart">
+            9. Uso de Carrito de Compras con Servlets <i class="fas fa-shopping-cart"></i>
+        </a>
+    </div>
+    <div id="collapseShoppingCart" class="collapse" data-parent="#infoAccordion">
+        <div class="card-body">
+            <p>
+                Implementar un carrito de compras utilizando Servlets implica gestionar estados de sesión y potencialmente utilizar cookies para rastrear las sesiones de los usuarios. El carrito de compras debe ser capaz de añadir items, eliminarlos y calcular el total de la compra.
+            </p>
+            <p>
+                Ejemplo Práctico: Crear un Servlet que añade un producto al carrito de compras almacenado en la sesión del usuario.
+            </p>
+            <pre><code>
+// AddToCartServlet.java
+public class AddToCartServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        List&lt;String&gt; cart = (List&lt;String&gt;) session.getAttribute("cart");
+
+        if (cart == null) {
+            cart = new ArrayList&lt;&gt;();
+        }
+
+        String item = request.getParameter("item");
+        if (item != null && !item.trim().isEmpty()) {
+            cart.add(item);
+        }
+
+        session.setAttribute("cart", cart);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("cart.jsp");
+        dispatcher.forward(request, response);
+    }
+}
+
+// cart.jsp
+&lt;%@ page contentType="text/html;charset=UTF-8" language="java" %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Shopping Cart&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Your Shopping Cart&lt;/h1&gt;
+    &lt;%
+        List&lt;String&gt; cart = (List&lt;String&gt;) session.getAttribute("cart");
+    %&gt;
+    &lt;ul&gt;
+        &lt;%
+            if (cart != null) {
+                for (String item : cart) {
+        %&gt;
+            &lt;li&gt;&lt;%= item %&gt;&lt;/li&gt;
+        &lt;%
+                }
+            }
+        %&gt;
+    &lt;/ul&gt;
+    &lt;form action="AddToCartServlet" method="get"&gt;
+        &lt;label for="item"&gt;Add item:&lt;/label&gt;
+        &lt;input type="text" id="item" name="item" required&gt;
+        &lt;input type="submit" value="Add to Cart"&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+            <p>
+                Este es un ejemplo simple y funcional, pero en un entorno real, los carritos de compras implican más lógica, como gestionar cantidades de items, manejar inventario y procesar transacciones de pago. La expansión de este concepto podría involucrar lógica adicional para estos procesos y la integración con sistemas de procesamiento de pagos.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- 10. Beans y Servlets -->
+<div class="card">
+    <div class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#collapseBeansServlets">
+            10. Beans y Servlets <i class="fas fa-bean"></i>
+        </a>
+    </div>
+    <div id="collapseBeansServlets" class="collapse" data-parent="#infoAccordion">
+        <div class="card-body">
+            <p>
+                JavaBeans son clases en Java que siguen ciertas convenciones y se utilizan para encapsular muchos objetos en un solo objeto (el bean), permitiendo así que los Servlets y las JSP manejen fácilmente la data entre las capas de una aplicación.
+            </p>
+            <p>
+                <strong>Convenciones de JavaBeans:</strong>
+            </p>
+            <ul>
+                <li>Debe tener un constructor sin argumentos.</li>
+                <li>Los campos deben ser privados y accesibles mediante métodos getter y setter.</li>
+                <li>Debe ser serializable.</li>
+            </ul>
+            <p>
+                Ejemplo Práctico: Crear un JavaBean para representar un usuario, un Servlet que crea una instancia del Bean, y una JSP que muestra la información del usuario.
+            </p>
+            <pre><code>
+// User.java
+public class User implements java.io.Serializable {
+    private String name;
+
+    public User() {}
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+
+// UserServlet.java
+public class UserServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        User user = new User();
+        user.setName("John Doe");
+        request.setAttribute("user", user);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("user.jsp");
+        dispatcher.forward(request, response);
+    }
+}
+
+// user.jsp
+&lt;%@ page import="path.to.your.bean.User" %&gt;
+&lt;%@ page contentType="text/html;charset=UTF-8" language="java" %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;User Information&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;%
+        User user = (User) request.getAttribute("user");
+    %&gt;
+    &lt;h1&gt;User Information&lt;/h1&gt;
+    &lt;p&gt;Name: &lt;%= user.getName() %&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+            <p>
+                En este ejemplo, el JavaBean (<code>User.java</code>) encapsula la información del usuario, el Servlet (<code>UserServlet.java</code>) establece los datos del Bean y lo pasa a la JSP (<code>user.jsp</code>), y la JSP recupera y muestra los datos del Bean.
+            </p>
+        </div>
+    </div>
+</div>
+
+    </div> <!-- cierra .accordion -->
+</div> <!-- cierra .container -->
+
+<script>
+    // Esperar a que el documento esté completamente cargado para agregar event listeners o manipular elementos
+    document.addEventListener("DOMContentLoaded", function() {
+        // Supongamos que deseas agregar un evento click a todos los encabezados de los acordeones para registrar en la consola cuál se está abriendo
+        const cardHeaders = document.querySelectorAll(".card-header a");
+        cardHeaders.forEach(header => {
+            header.addEventListener("click", function() {
+                console.log("Se ha abierto el acordeón:", this.innerText);
+            });
+        });
+        // O quizá deseas agregar una funcionalidad que cambie el color de fondo de un acordeón cuando este esté expandido
+        const accordions = document.querySelectorAll(".collapse");
+        accordions.forEach(accordion => {
+            accordion.addEventListener("show.bs.collapse", function() {
+                this.parentElement.style.backgroundColor = "#f5f5f5"; // Color de fondo cuando se expande
+            });
+            accordion.addEventListener("hide.bs.collapse", function() {
+                this.parentElement.style.backgroundColor = ""; // Retornar al color de fondo original cuando se colapse
+            });
+        });
+    });
+</script>
+</body>
+</html>
+
+
+</html>
+</body>
