@@ -1,6 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
+<!----  
+<img  src="https://i.ibb.co/x5rr2QK/contenidos.png">
+
+-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,11 +38,34 @@ Si necesitas añadir más versiones de Java, simplemente agrega más opciones de
    <li><a href="https://ns2.elhacker.net/descargas/manuales/Lenguajes%20de%20Programacion/Java/Ejercicios-de-Programacion-en-Java.pdf">Ejercicios de Programación</a></li>
 <li><a href="servlet.html"> <i class="fas fa-server">Servlet</i></a>   
     <li><a href="jstl.html"> <i class="fas fa-server">JSTL</i></a>   
-<li>  <a href="https://dsrl.eu/courses/sd/materials/la10.pdf">REST</a></li>
+<li id="restItem">  <a href="https://dsrl.eu/courses/sd/materials/la10.pdf">REST</a></li>
           <li><a href="junit.html">Pruebas</a></li>
                <li><a href="https://docs.google.com/document/d/1iuJHdkkJ5poGToc7DvxsUbvfoc927IaVcGwKAcPM2bU/edit?usp=sharing">Seguridad</a></li>
     </ul>
-   
+   <!-- La imagen a mostrar -->
+   <div style="position: relative;">
+    <img id="contentImage" src="" alt="Contenido"  style="position: absolute; top: -280px; right: 10px; "">
+    
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Obtener el elemento y la imagen
+    var listItem = document.getElementById('restItem');
+    var image = document.getElementById('contentImage');
+
+    // Función para cambiar la imagen cuando el ratón está sobre el elemento
+    listItem.addEventListener('mouseenter', function() {
+        image.src = "https://i.ibb.co/x5rr2QK/contenidos.png";
+    });
+
+    // Función para cambiar la imagen de vuelta cuando el ratón sale del elemento
+    listItem.addEventListener('mouseleave', function() {
+        image.src = "path/to/default/image.jpg";
+    });
+});
+</script>
         <h2>Documentación (API JAVA) Oficial</h2>
         <form id="versionForm" onsubmit="event.preventDefault(); redirectToDocs();">
             <div class="mb-3">
@@ -79,5 +106,4 @@ Si necesitas añadir más versiones de Java, simplemente agrega más opciones de
 </body>
 
 </html>
-
 
