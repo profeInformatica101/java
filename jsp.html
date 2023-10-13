@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía JSP</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3f5f7fc3e0.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container mt-5">
+        
+       <!-- Objeto Implicito JSP -->
+<div class="mb-4">
+    <h2><i class="fas fa-code"></i> Objeto Implícito JSP</h2>
+    <p>En JSP, hay varios objetos que puedes usar directamente sin declararlos. Estos son conocidos como objetos implícitos.</p>
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Objeto Implícito</th>
+                <th>Tipo (clase/interface)</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>request</td>
+                <td>javax.servlet.http.HttpServletRequest</td>
+                <td>Requisición actual. Contiene información de la solicitud del cliente.</td>
+            </tr>
+            <tr>
+                <td>response</td>
+                <td>javax.servlet.http.HttpServletResponse</td>
+                <td>Respuesta al cliente. Puedes enviar datos al cliente.</td>
+            </tr>
+            <tr>
+                <td>session</td>
+                <td>javax.servlet.http.HttpSession</td>
+                <td>Proporciona una forma de identificar al usuario en múltiples solicitudes de página.</td>
+            </tr>
+            <tr>
+                <td>out</td>
+                <td>javax.servlet.jsp.JspWriter</td>
+                <td>Envía contenido a la salida del cliente.</td>
+            </tr>
+            <tr>
+                <td>application</td>
+                <td>javax.servlet.ServletContext</td>
+                <td>Comparte información entre todas las páginas de la aplicación web.</td>
+            </tr>
+            <tr>
+                <td>config</td>
+                <td>javax.servlet.ServletConfig</td>
+                <td>Proporciona información de configuración para la página JSP.</td>
+            </tr>
+            <tr>
+                <td>pageContext</td>
+                <td>javax.servlet.jsp.PageContext</td>
+                <td>Proporciona métodos para acceder a varios objetos de alcance.</td>
+            </tr>
+            <tr>
+                <td>exception</td>
+                <td>java.lang.Throwable</td>
+                <td>Gestiona excepciones que se produzcan en la página JSP (usado principalmente en páginas de error).</td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+
+        <!-- Directivas JSP -->
+<div class="mb-4">
+    <h2><i class="fas fa-cogs"></i> Directivas JSP</h2>
+    <p>Las directivas proporcionan mensajes al contenedor JSP e influyen en la fase de traducción de la página JSP. Aquí algunas de las directivas más comunes:</p>
+    
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Directiva</th>
+                <th>Descripción</th>
+                <th>Atributos principales</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>page</td>
+                <td>Define atributos para la página JSP, como importar paquetes, tipo de contenido y manejo de errores.</td>
+                <td>import, contentType, isErrorPage, language...</td>
+            </tr>
+            <tr>
+                <td>include</td>
+                <td>Incluye el contenido de otro archivo en la página JSP en tiempo de traducción.</td>
+                <td>file</td>
+            </tr>
+            <tr>
+                <td>taglib</td>
+                <td>Declara una biblioteca de etiquetas personalizada y le da un prefijo para su uso en la página.</td>
+                <td>uri, prefix</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+        <!-- Elementos JSP -->
+<div class="mb-4">
+    <h2><i class="fas fa-list-ul"></i> Elementos JSP</h2>
+    <p>Los elementos JSP permiten incrustar código Java dentro de una página JSP. Estos son algunos de los elementos clave:</p>
+    
+    <table class="table table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th>Elemento</th>
+                <th>Sintaxis</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Declaraciones</td>
+                <td><code>&lt;%! ... %&gt;</code></td>
+                <td>Se utiliza para declarar variables y métodos que se utilizan en el código JSP.</td>
+            </tr>
+            <tr>
+                <td>Scriptlets</td>
+                <td><code>&lt;% ... %&gt;</code></td>
+                <td>Contiene código Java que se ejecuta cada vez que la página se solicita.</td>
+            </tr>
+            <tr>
+                <td>Expresiones</td>
+                <td><code>&lt;%= ... %&gt;</code></td>
+                <td>Evaluadas y convertidas a String, y luego insertadas en la salida de la página.</td>
+            </tr>
+            <tr>
+                <td>Directivas</td>
+                <td><code>&lt;%@ ... %&gt;</code></td>
+                <td>Proporciona mensajes al contenedor JSP, afectando la fase de traducción.</td>
+            </tr>
+            <tr>
+                <td>Comentarios</td>
+                <td><code>&lt;!-- ... --&gt;</code></td>
+                <td>Comentarios que no se envían al cliente en la salida.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Java Standard Tag Libraries (JSTL) -->
+<div class="mb-4">
+    <h2><i class="fas fa-tags"></i> Java Standard Tag Libraries (JSTL)</h2>
+    <p>El JSTL es una colección de etiquetas útiles para JSP. Estas etiquetas ayudan a minimizar la necesidad de código Java incrustado en las páginas JSP.</p>
+
+    <h3>Core (recursos fundamentales)</h3>
+    <ul>
+        <li>URI JSTL 1.0 (JSP 2.0): <a href="http://java.sun.com/jsp/jstl/core">http://java.sun.com/jsp/jstl/core</a></li>
+        <li>URI JSTL 1.1 (JSP 2.0 e 1.2): <a href="http://java.sun.com/jsp/jstl/core">http://java.sun.com/jsp/jstl/core</a></li>
+        <li>Prefix usual: c</li>
+        <li>Ejemplo: `<c:out value="${variable}" />`</li>
+    </ul>
+
+    <h3>Formato e internacionalización</h3>
+    <ul>
+        <li>URI: <a href="http://java.sun.com/jsp/jstl/fmt">http://java.sun.com/jsp/jstl/fmt</a></li>
+        <li>Prefix usual: fmt</li>
+        <li>Ejemplo: `<fmt:formatDate value="${date}" pattern="dd-MM-yyyy" />`</li>
+    </ul>
+
+    <h3>XML (procesamiento de XML)</h3>
+    <ul>
+        <li>URI: <a href="http://java.sun.com/jsp/jstl/xml">http://java.sun.com/jsp/jstl/xml</a></li>
+        <li>Prefix usual: x</li>
+        <li>Ejemplo: `<x:parse xml="${xmlData}" var="xmlResult" />`</li>
+    </ul>
+
+    <!-- Puedes continuar con las otras áreas (SQL, Funciones, etc.)... -->
+
+</div>
+
+        
+        <!-- Tipos de Archivo JSP -->
+        <div class="mb-4">
+            <h2><i class="fas fa-file-code"></i> Tipos de Archivo JSP</h2>
+            <!-- Aquí irá el contenido relacionado con Tipos de Archivo JSP -->
+        </div>
+        
+        <!-- Y así sucesivamente con otros apartados... -->
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
