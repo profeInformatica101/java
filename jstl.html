@@ -1,188 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSTL </title>
-
-    <!-- Incluyendo Bootstrap CSS y JS -->
+    <title>JSTL</title>
+    <!-- Enlace a Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+   
+    <!-- Incluyendo jQuery y Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/3f5f7fc3e0.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="container mt-5">
-<h1>JSLT</h1>
-        <!-- Inserción de código en páginas web -->
+        <h1> <i class="fas fa-code"></i>JSTL</h1>
+
+        <!-- 1. Inserción de código en páginas web -->
         <div class="card">
             <div class="card-header">
                 <a class="card-link" data-toggle="collapse" href="#collapseOne">
-                    1. Inserción de código en páginas web
+                    <i class="fas fa-code"></i> 1. Inserción de código en páginas web
                 </a>
             </div>
             <div id="collapseOne" class="collapse" data-parent=".container">
                 <div class="card-body">
-                    Ejemplo: <code>&lt;%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %&gt;</code>
+                    JSTL proporciona una manera fácil y efectiva de insertar código en páginas web sin tener que utilizar scriptlets de Java.
+                    <br>
+                    <strong>Ejemplo:</strong>
+                    <code>&lt;%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %&gt;</code>
+                    <br>
+                    <p>Este taglib permite a los desarrolladores utilizar las etiquetas JSTL, que pueden ofrecer una lógica de control de flujo, internacionalización, etc., en una página JSP sin necesidad de usar scriptlets.</p>
                 </div>
             </div>
         </div>
-    
-        <!-- Sintaxis del lenguaje JSTL -->
-        <div class="card">
-            <div class="card-header">
-                <a class="card-link" data-toggle="collapse" href="#collapseTwo">
-                    2. Sintaxis del lenguaje JSTL
-                </a>
-            </div>
-            <div id="collapseTwo" class="collapse" data-parent=".container">
-                <div class="card-body">
-                    Ejemplo: <code>&lt;c:out value="${variable}" /&gt;</code>
-                </div>
+        
+     <!-- 2. Sintaxis del lenguaje JSTL -->
+     <div class="card">
+        <div class="card-header">
+            <a class="card-link" data-toggle="collapse" href="#collapseTwo">
+                <i class="fas fa-book"></i> 2. Sintaxis del lenguaje JSTL
+            </a>
+        </div>
+        <div id="collapseTwo" class="collapse" data-parent=".container">
+            <div class="card-body">
+                La sintaxis de JSTL permite manejar y manipular datos en JSPs. 
+                <br>
+                <strong>Ejemplo:</strong>
+                <code>&lt;c:out value="${variable}" /&gt;</code>
+                <p>El anterior código imprimirá el valor de la variable "variable" en el cliente. JSTL también ofrece otras etiquetas útiles para realizar diferentes tareas como la iteración, condicionales, etc.</p>
             </div>
         </div>
-    
-         <!-- Tipos de datos -->
+    </div>
+
+    <!-- 3. Tipos de datos -->
     <div class="card">
         <div class="card-header">
             <a class="card-link" data-toggle="collapse" href="#collapseThree">
-                3. Tipos de datos
+                <i class="fas fa-list"></i> 3. Tipos de datos
             </a>
         </div>
         <div id="collapseThree" class="collapse" data-parent=".container">
             <div class="card-body">
-                JSTL soporta principalmente los tipos de datos de Java, como: 
-                <code>String, int, double, boolean, etc.</code>
-            </div>
-        </div>
-    </div>
-
-    <!-- Variables -->
-    <div class="card">
-        <div class="card-header">
-            <a class="card-link" data-toggle="collapse" href="#collapseFour">
-                4. Variables
-            </a>
-        </div>
-        <div id="collapseFour" class="collapse" data-parent=".container">
-            <div class="card-body">
-                Ejemplo: <code>&lt;c:set var="variableName" value="value" /&gt;</code>
-            </div>
-        </div>
-    </div>
-
-    <!-- Operadores -->
-    <div class="card">
-        <div class="card-header">
-            <a class="card-link" data-toggle="collapse" href="#collapseFive">
-                5. Operadores
-            </a>
-        </div>
-        <div id="collapseFive" class="collapse" data-parent=".container">
-            <div class="card-body">
-                Ejemplo: <code>${variable1 == variable2}</code>, <code>${variable > 5}</code>, etc.
-            </div>
-        </div>
-    </div>
-
-    <!-- Sentencias y Estructuras de control -->
-    <div class="card">
-        <div class="card-header">
-            <a class="card-link" data-toggle="collapse" href="#collapseSix">
-                6. Sentencias y Estructuras de control
-            </a>
-        </div>
-        <div id="collapseSix" class="collapse" data-parent=".container">
-            <div class="card-body">
-                Ejemplo con condicionales: 
-                <code>
-                    &lt;c:choose&gt;
-                        &lt;c:when test="${condition}"&gt; ... &lt;/c:when&gt;
-                        &lt;c:otherwise&gt; ... &lt;/c:otherwise&gt;
-                    &lt;/c:choose&gt;
-                </code>
-            </div>
-        </div>
-    </div>
-
-    <!-- Funciones -->
-    <div class="card">
-        <div class="card-header">
-            <a class="card-link" data-toggle="collapse" href="#collapseSeven">
-                7. Funciones
-            </a>
-        </div>
-        <div id="collapseSeven" class="collapse" data-parent=".container">
-            <div class="card-body">
-                Ejemplo: <code>${fn:length(stringVariable)}</code>
-            </div>
-        </div>
-    </div>
-
-    <!-- Formularios y validaciones -->
-    <div class="card">
-        <div class="card-header">
-            <a class="card-link" data-toggle="collapse" href="#collapseEight">
-                8. Formularios y validaciones
-            </a>
-        </div>
-        <div id="collapseEight" class="collapse" data-parent=".container">
-            <div class="card-body">
-                Ejemplo con Bootstrap:
-                <pre>
-                    <code>
-                        &lt;form action="process.jsp"&gt;
-                          &lt;div class="form-group"&gt;
-                            &lt;label for="name"&gt;Name:&lt;/label&gt;
-                            &lt;input type="text" class="form-control" id="name" name="name"&gt;
-                          &lt;/div&gt;
-                          &lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt;
-                        &lt;/form&gt;
-                    </code>
-                </pre>
-            </div>
-        </div>
-    </div>
-
-    <!-- Mantenimiento del estado: Sesiones y Cookies -->
-    <div class="card">
-        <div class="card-header">
-            <a class="card-link" data-toggle="collapse" href="#collapseNine">
-                9. Mantenimiento del estado: Sesiones y Cookies
-            </a>
-        </div>
-        <div id="collapseNine" class="collapse" data-parent=".container">
-            <div class="card-body">
-                Ejemplo sesión: <code>&lt;c:set var="variableName" value="value" scope="session" /&gt;</code>
+                JSTL soporta principalmente los tipos de datos de Java, lo que permite a los desarrolladores utilizar tipos de datos comunes en sus JSPs. 
                 <br>
-                Ejemplo cookie: <code>${cookie.cookieName.value}</code
-                </div>
+                Ejemplo: <code>String, int, double, boolean, etc.</code>
+                <p>Estos tipos de datos se pueden utilizar en las diferentes etiquetas y expresiones de JSTL para realizar operaciones y manipulaciones.</p>
             </div>
         </div>
-        
-        <!-- Almacenamiento en el navegador -->
+    </div>
+ <!-- 4. Variables -->
+ <div class="card">
+    <div class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#collapseFour">
+            <i class="fas fa-square-root-variable"></i> 4. Variables
+        </a>
+    </div>
+    <div id="collapseFour" class="collapse" data-parent=".container">
+        <div class="card-body">
+            En JSTL, podemos definir variables que permiten almacenar y recuperar valores en nuestras páginas JSP. 
+            <br>
+            <strong>Ejemplo básico:</strong>
+            <code>&lt;c:set var="variableName" value="value" /&gt;</code>
+            <br>
+            Una vez que una variable ha sido establecida, podemos utilizarla más adelante en la página con la sintaxis:
+            <code>${variableName}</code>
+            <p>Las variables pueden almacenar diferentes tipos de datos y ser utilizadas en diversas operaciones y expresiones JSTL a lo largo del JSP. 
+               Además, el ámbito de una variable (por ejemplo, request, session, application) puede ser controlado mediante el atributo <code>scope</code>.</p>
+            <strong>Ejemplo avanzado:</strong>
+            <code>&lt;c:set var="counter" value="${counter + 1}" scope="session" /&gt;</code>
+            <p>Este ejemplo incrementará el valor de la variable de sesión "counter" en 1 cada vez que la página sea recargada.</p>
+        </div>
+    </div>
+</div>
+        <!-- 5. Operadores -->
         <div class="card">
             <div class="card-header">
-                <a class="card-link" data-toggle="collapse" href="#collapseTen">
-                    10. Almacenamiento en el navegador
+                <a class="card-link" data-toggle="collapse" href="#collapseFive">
+                    <i class="fas fa-calculator"></i> 5. Operadores
                 </a>
             </div>
-            <div id="collapseTen" class="collapse" data-parent=".container">
+            <div id="collapseFive" class="collapse" data-parent=".container">
                 <div class="card-body">
-                    El almacenamiento en el navegador (como localStorage o sessionStorage) es manipulado con JavaScript. Ejemplo:
-                    <pre>
-                        <code>
-                            // Establecer un valor en localStorage
-                            localStorage.setItem('key', 'value');
-        
-                            // Obtener un valor de localStorage
-                            let value = localStorage.getItem('key');
-                        </code>
-                    </pre>
+                    Los operadores en JSTL se utilizan para realizar operaciones sobre variables y valores. Estos incluyen operadores aritméticos, de comparación y lógicos.
+                    <br>
+                    <strong>Operadores Aritméticos:</strong>
+                    <p>Se utilizan para realizar operaciones matemáticas.</p>
+                    <code>${a + b}</code>, <code>${a - b}</code>, <code>${a * b}</code>, <code>${a / b}</code>, <code>${a % b}</code>
+                    <br>
+                    <strong>Operadores de Comparación:</strong>
+                    <p>Se utilizan para comparar dos valores.</p>
+                    <code>${a == b}</code>, <code>${a != b}</code>, <code>${a < b}</code>, <code>${a <= b}</code>, <code>${a > b}</code>, <code>${a >= b}</code>
+                    <br>
+                    <strong>Operadores Lógicos:</strong>
+                    <p>Se utilizan para realizar operaciones lógicas.</p>
+                    <code>${a && b}</code>, <code>${a || b}</code>, <code>${!a}</code>
+                    <br>
+                    <p>A continuación, se presenta un ejemplo práctico utilizando operadores en JSTL:</p>
+                    <code>
+                        &lt;c:set var="a" value="5" /&gt;<br>
+                        &lt;c:set var="b" value="10" /&gt;<br>
+                        &lt;c:if test="${a < b}"&gt;<br>
+                        &nbsp;&nbsp;&nbsp; a es menor que b<br>
+                        &lt;/c:if&gt;
+                    </code>
+                    <p>En este ejemplo, se definen dos variables 'a' y 'b' y luego se utilizan en una expresión para verificar si 'a' es menor que 'b'.</p>
                 </div>
             </div>
         </div>
+                <!-- 6. Sentencias y Estructuras de control -->
+                <div class="card">
+                    <div class="card-header">
+                        <a class="card-link" data-toggle="collapse" href="#collapseSix">
+                            <i class="fas fa-code-branch"></i> 6. Sentencias y Estructuras de control
+                        </a>
+                    </div>
+                    <div id="collapseSix" class="collapse" data-parent=".container">
+                        <div class="card-body">
+                            <p>En JSTL, se pueden utilizar diversas estructuras de control para manejar el flujo del programa, como condicionales y ciclos.</p>
+                            
+                            <strong>Condicionales:</strong>
+                            <p>Las estructuras condicionales permiten ejecutar bloques de código dependiendo de si una condición es verdadera o falsa.</p>
+                            <code>
+                                &lt;c:choose&gt;<br>
+                                &nbsp;&nbsp;&nbsp;&lt;c:when test="${condition}"&gt; ... &lt;/c:when&gt;<br>
+                                &nbsp;&nbsp;&nbsp;&lt;c:otherwise&gt; ... &lt;/c:otherwise&gt;<br>
+                                &lt;/c:choose&gt;
+                            </code>
+        
+                            <strong>Bucles:</strong>
+                            <p>Los bucles permiten repetir bloques de código mientras se cumpla una condición.</p>
+                            <code>
+                                &lt;c:forEach var="item" items="${list}"&gt;<br>
+                                &nbsp;&nbsp;&nbsp; ${item}<br>
+                                &lt;/c:forEach&gt;
+                            </code>
+        
+                            <p>Veamos un ejemplo práctico de uso de estas estructuras de control:</p>
+                            <code>
+                                &lt;c:set var="userAge" value="20" /&gt;<br><br>
+                                &lt;c:choose&gt;<br>
+                                &nbsp;&nbsp;&nbsp;&lt;c:when test="${userAge >= 18}"&gt;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Usted es mayor de edad.<br>
+                                &nbsp;&nbsp;&nbsp;&lt;/c:when&gt;<br>
+                                &nbsp;&nbsp;&nbsp;&lt;c:otherwise&gt;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Usted es menor de edad.<br>
+                                &nbsp;&nbsp;&nbsp;&lt;/c:otherwise&gt;<br>
+                                &lt;/c:choose&gt;<br><br>
+                                &lt;c:set var="fruits" value="${['Apple', 'Banana', 'Cherry']}" /&gt;<br>
+                                &lt;c:forEach var="fruit" items="${fruits}"&gt;<br>
+                                &nbsp;&nbsp;&nbsp; ${fruit}<br>
+                                &lt;/c:forEach&gt;
+                            </code>
+                            <p>En este ejemplo, la estructura <code>&lt;c:choose&gt;</code> determina si el usuario es mayor o menor de edad, mientras que <code>&lt;c:forEach&gt;</code> itera sobre una lista de frutas, mostrando cada una de ellas.</p>
+                        </div>
+                    </div>
+                </div>
+                 <!-- 7. Manejo de errores -->
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#collapseSeven">
+                    <i class="fas fa-exclamation-triangle"></i> 7. Manejo de errores
+                </a>
+            </div>
+            <div id="collapseSeven" class="collapse" data-parent=".container">
+                <div class="card-body">
+                    <p>El manejo de errores en JSTL se realiza principalmente mediante el uso de la tag <code>&lt;c:catch&gt;</code>, la cual permite capturar y manejar excepciones lanzadas durante la ejecución de una página JSP.</p>
+                    
+                    <strong>Ejemplo:</strong>
+                    <code>
+                        &lt;c:catch var="myError"&gt;<br>
+                        &nbsp;&nbsp;&nbsp; &lt;c:set var="num" value="${1/0}" /&gt;<br>
+                        &lt;/c:catch&gt;<br>
+                        &lt;c:if test="${not empty myError}"&gt;<br>
+                        &nbsp;&nbsp;&nbsp; &lt;p&gt;Error: ${myError}&lt;/p&gt;<br>
+                        &lt;/c:if&gt;
+                    </code>
+
+                    <p>En este código, tratamos de realizar una división por cero, lo que normalmente lanzaría una excepción. Sin embargo, usando <code>&lt;c:catch&gt;</code>, capturamos la excepción y la almacenamos en la variable <code>myError</code>. Luego, usamos <code>&lt;c:if&gt;</code> para verificar si <code>myError</code> contiene una excepción, y en caso afirmativo, mostramos un mensaje de error.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Formularios y Validaciones -->
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#collapseEight">
+                    <i class="fas fa-check-square"></i> 8. Formularios y Validaciones
+                </a>
+            </div>
+            <div id="collapseEight" class="collapse" data-parent=".container">
+                <div class="card-body">
+                    <p>JSTL puede ser usado para manejar la lógica en el servidor tras el envío de un formulario. Aunque la validación de datos del formulario generalmente se realiza en el lado del cliente usando JavaScript para una mejor experiencia del usuario, también es crucial validar en el servidor para la seguridad de la aplicación.</p>
+        
+                    <p>Ejemplo básico de cómo puedes usar JSTL para validar un formulario:</p>
+                    
+                    <pre><code>&lt;c:if test="${param.submitted == 'true'}"&gt;
+            &lt;c:choose&gt;
+                &lt;c:when test="${not empty param.name and not empty param.email}"&gt;
+                    &lt;p&gt;Formulario enviado exitosamente.&lt;/p&gt;
+                &lt;/c:when&gt;
+                &lt;c:otherwise&gt;
+                    &lt;p style="color: red;"&gt;Por favor, completa todos los campos.&lt;/p&gt;
+                &lt;/c:otherwise&gt;
+            &lt;/c:choose&gt;
+        &lt;/c:if&gt;
+                    </code></pre>
+        
+                    <p>Nota: La validación del lado del servidor es crucial porque la validación del lado del cliente puede ser eludida.</p>
+                </div>
+            </div>
+        </div>
+                    <!-- 9. Manipulación de fechas y números -->
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#collapseNine">
+                    <i class="fas fa-calendar-alt"></i> 9. Manipulación de Fechas y Números
+                </a>
+            </div>
+            <div id="collapseNine" class="collapse" data-parent=".container">
+                <div class="card-body">
+                    <p>JSTL ofrece una serie de funcionalidades para trabajar con fechas y números, permitiendo formatear y parsear estas entidades de acuerdo con localizaciones específicas, ofreciendo así, una gran adaptabilidad a diversas regiones e idiomas.</p>
+                    
+                    <strong>Ejemplo de Formateo de Fechas:</strong>
+                    <code>
+                        &lt;fmt:formatDate value="${now}" pattern="dd/MM/yyyy" /&gt;
+                    </code>
+                    <p>En este ejemplo, <code>${now}</code> es una variable que contiene una fecha y esta se formatea según el patrón especificado.</p>
+                    
+                    <strong>Ejemplo de Formateo de Números:</strong>
+                    <code>
+                        &lt;fmt:formatNumber value="${number}" pattern="#,##0.00" /&gt;
+                    </code>
+                    <p>En este caso, <code>${number}</code> es una variable que contiene un número y es formateada para tener dos decimales y usar comas para separar los milares.</p>
+                    
+                    <strong>Parseo de Números y Fechas:</strong>
+                    <p>También se pueden parsear cadenas de texto para convertirlas en números o fechas utilizando <code>&lt;fmt:parseNumber&gt;</code> y <code>&lt;fmt:parseDate&gt;</code> respectivamente.</p>
+                    <code>
+                        &lt;fmt:parseNumber value="${stringNumber}" var="parsedNumber" type="number" pattern="#,##0.00" /&gt;<br>
+                        &lt;fmt:parseDate value="${stringDate}" var="parsedDate" type="date" pattern="dd/MM/yyyy" /&gt;
+                    </code>
+                    <p>En ambos casos, las cadenas de texto proporcionadas se convertirán en tipos de datos numéricos y fecha respectivamente, según los patrones proporcionados.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Internacionalización y Localización -->
+<div class="card">
+    <div class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#collapseTen">
+            <i class="fas fa-globe-americas"></i> 10. Internacionalización y Localización
+        </a>
+    </div>
+    <div id="collapseTen" class="collapse" data-parent=".container">
+        <div class="card-body">
+            <p>JSTL facilita la internacionalización (i18n) y la localización (L10n) de las aplicaciones, permitiendo la traducción fácil de textos en diferentes idiomas sin tener que cambiar el código.</p>
+
+            <p>Ejemplo básico de cómo puedes usar JSTL para internacionalización:</p>
+
+            <pre><code>&lt;%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %&gt;
+&lt;%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %&gt;
+
+&lt;c:set var="locale" value="${param.lang}" scope="session" /&gt;
+
+&lt;fmt:setLocale value="${locale}" /&gt;
+&lt;fmt:setBundle basename="com.example.i18n.text" /&gt;
+
+&lt;p&gt;&lt;fmt:message key="welcome" /&gt;&lt;/p&gt;
+            </code></pre>
+
+            <p>En este ejemplo, se definen dos taglibs: "fmt" y "c" de JSTL. Los mensajes para diferentes idiomas son almacenados en archivos properties con un basename (en este caso "com.example.i18n.text"), y la clave "welcome" se utiliza para recuperar mensajes de bienvenida traducidos basados en el idioma (locale) definido en la sesión.</p>
+            
+            <p>Nota: Deberás crear archivos de propiedades separados para cada idioma que planeas soportar, por ejemplo, text_en_US.properties, text_es_ES.properties, etc., y colocarlos en el paquete "com.example.i18n".</p>
+        </div>
+    </div>
+</div>
     </div> <!-- cierra .container -->
     <script>
         // Esperar a que el documento esté completamente cargado para agregar event listeners o manipular elementos
