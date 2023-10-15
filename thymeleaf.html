@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Etiquetas Thymeleaf</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .navbar {
+            background-color: #007bff;
+        }
+        .navbar-dark .navbar-toggler-icon {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Guía Thymeleaf</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#th-text">th:text</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#th-if">th:if</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#th-unless">th:unless</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#th-each">th:each</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#th-href">th:href</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#th-value">th:value</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#th-object-field">th:object y th:field</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#th-selected">th:selected</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#th-class">th:class</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#th-style">th:style</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="mb-4">Guía de Etiquetas Thymeleaf</h1>
+
+
+
+        <h2 id="th-text">Etiqueta th:text</h2>
+        <p>La etiqueta <code>th:text</code> se utiliza para establecer el contenido de texto de un elemento HTML. Es comúnmente usada para mostrar dinámicamente datos en la página.</p>
+        <p>Ejemplo:</p>
+        <pre><code>&lt;p th:text="${message}"&gt;Este texto será reemplazado por el contenido de 'message' si está presente.&lt;/p&gt;</code></pre>
+    
+        <h2 id="th-if">Etiqueta th:if</h2>
+        <p>La etiqueta <code>th:if</code> permite mostrar u ocultar elementos HTML en función de una condición. Si la condición es verdadera, el elemento se muestra; de lo contrario, se oculta.</p>
+        <p>Ejemplo:</p>
+        <pre><code>&lt;p th:if="${condition}"&gt;Este párrafo se muestra si 'condition' es verdadero.&lt;/p&gt;</code></pre>
+    
+        <h2>Etiqueta th:unless</h2>
+        <p>La etiqueta <code>th:unless</code> es el opuesto de <code>th:if</code>. Permite mostrar elementos solo si la condición es falsa.</p>
+        <p>Ejemplo:</p>
+        <pre><code>&lt;p th:unless="${condition}"&gt;Este párrafo se muestra si 'condition' es falso.&lt;/p&gt;</code></pre>
+    
+        <h2>Etiqueta th:each</h2>
+        <p>La etiqueta <code>th:each</code> se utiliza para iterar sobre una colección y generar elementos HTML para cada elemento de la colección.</p>
+        <p>Ejemplo:</p>
+        <pre><code>&lt;ul&gt;
+        &lt;li th:each="item : ${items}" th:text="${item}"&gt;Elemento de la lista&lt;/li&gt;
+    &lt;/ul&gt;</code></pre>
+    
+      <!-- Etiqueta th:href -->
+      <h2 id="th-href">Etiqueta th-href</h2>
+      <p>La etiqueta <code>th:href</code> se utiliza para definir la URL de un enlace.</p>
+      <p>Ejemplo:</p>
+      <pre><code>&lt;a th:href="@{/pagina}"&gt;Enlace a la página&lt;/a&gt;</code></pre>
+    
+      <!-- Etiqueta th:value -->
+      <h2>Etiqueta th:value</h2>
+      <p>La etiqueta <code>th:value</code> se utiliza para establecer el valor de un atributo <code>value</code> en un elemento <code>input</code> o similar.</p>
+      <p>Ejemplo:</p>
+      <pre><code>&lt;input type="text" th:value="${inputValue}" placeholder="Escriba algo aquí"&gt;</code></pre>
+    
+      <!-- Etiqueta th:object y th:field -->
+      <h2>Etiqueta th:object y th:field (para formularios)</h2>
+      <p>Las etiquetas <code>th:object</code> y <code>th:field</code> se utilizan para vincular campos de un formulario a propiedades de un objeto.</p>
+      <p>Ejemplo:</p>
+      <pre><code>&lt;form th:object="${user}" th:action="@{/guardar}" method="post"&gt;
+      &lt;label for="name"&gt;Nombre:&lt;/label&gt;
+      &lt;input type="text" id="name" th:field="*{name}" /&gt;
+      &lt;label for="email"&gt;Email:&lt;/label&gt;
+      &lt;input type="text" id="email" th:field="*{email}" /&gt;
+      &lt;button type="submit"&gt;Guardar&lt;/button&gt;
+    &lt;/form&gt;</code></pre>
+    
+    
+        <!-- Etiqueta th:selected -->
+        <h2>Etiqueta th:selected</h2>
+        <p>La etiqueta <code>th:selected</code> se utiliza para seleccionar automáticamente una opción en un elemento <code>select</code> cuando se cumple una condición.</p>
+        <p>Ejemplo:</p>
+        <pre><code>&lt;select th:field="*{selectedOption}"&gt;
+            &lt;option value="opcion1" th:selected="${selectedOption == 'opcion1'}"&gt;Opción 1&lt;/option&gt;
+            &lt;option value="opcion2" th:selected="${selectedOption == 'opcion2'}"&gt;Opción 2&lt;/option&gt;
+            &lt;option value="opcion3" th:selected="${selectedOption == 'opcion3'}"&gt;Opción 3&lt;/option&gt;
+        &lt;/select&gt;</code></pre>
+    
+        <!-- Etiqueta th:class -->
+        <h2>Etiqueta th:class</h2>
+        <p>La etiqueta <code>th:class</code> se utiliza para agregar clases CSS a un elemento HTML en función de una condición.</p>
+        <p>Ejemplo:</p>
+        <pre><code>&lt;div th:class="${condition} ? 'clase-activa' : 'clase-inactiva'"&gt;Elemento con clase dinámica&lt;/div&gt;</code></pre>
+    
+        <!-- Etiqueta th:style -->
+        <h2>Etiqueta th:style</h2>
+        <p>La etiqueta <code>th:style</code> se utiliza para aplicar estilos CSS a un elemento HTML en función de una condición.</p>
+        <p>Ejemplo:</p>
+        <pre><code>&lt;div th:style="${condition} ? 'color: red;' : 'color: green;'"&gt;Texto con estilo dinámico&lt;/div&gt;</code></pre>
+    
+        
+  
+       
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
