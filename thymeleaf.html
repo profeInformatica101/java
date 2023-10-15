@@ -7,16 +7,22 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        body {
-            padding: 20px;
-        }
-        .navbar {
-            background-color: #007bff;
-        }
-        .navbar-dark .navbar-toggler-icon {
-            background-color: #fff;
-        }
+
+.navbar {
+        background-color: #28a745; /* Verde Bootstrap */
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    .navbar-dark .navbar-toggler-icon {
+        background-color: #fff;
+    }
+    body {
+        padding-top: 70px; /* Ajustar según la altura de tu navbar */
+    }
     </style>
+    
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -75,12 +81,12 @@
         <p>Ejemplo:</p>
         <pre><code>&lt;p th:if="${condition}"&gt;Este párrafo se muestra si 'condition' es verdadero.&lt;/p&gt;</code></pre>
     
-        <h2>Etiqueta th:unless</h2>
+      <h2 id="th-unless">Etiqueta th:unless</h2>
         <p>La etiqueta <code>th:unless</code> es el opuesto de <code>th:if</code>. Permite mostrar elementos solo si la condición es falsa.</p>
         <p>Ejemplo:</p>
         <pre><code>&lt;p th:unless="${condition}"&gt;Este párrafo se muestra si 'condition' es falso.&lt;/p&gt;</code></pre>
     
-        <h2>Etiqueta th:each</h2>
+        <h2 id="th-each">Etiqueta th:each</h2>
         <p>La etiqueta <code>th:each</code> se utiliza para iterar sobre una colección y generar elementos HTML para cada elemento de la colección.</p>
         <p>Ejemplo:</p>
         <pre><code>&lt;ul&gt;
@@ -88,20 +94,21 @@
     &lt;/ul&gt;</code></pre>
     
       <!-- Etiqueta th:href -->
-      <h2 id="th-href">Etiqueta th-href</h2>
+      <h2 id="th-href">Etiqueta th:href</h2>
       <p>La etiqueta <code>th:href</code> se utiliza para definir la URL de un enlace.</p>
       <p>Ejemplo:</p>
       <pre><code>&lt;a th:href="@{/pagina}"&gt;Enlace a la página&lt;/a&gt;</code></pre>
     
       <!-- Etiqueta th:value -->
-      <h2>Etiqueta th:value</h2>
+      <h2 id="th-value">Etiqueta th:value</h2>
       <p>La etiqueta <code>th:value</code> se utiliza para establecer el valor de un atributo <code>value</code> en un elemento <code>input</code> o similar.</p>
       <p>Ejemplo:</p>
       <pre><code>&lt;input type="text" th:value="${inputValue}" placeholder="Escriba algo aquí"&gt;</code></pre>
     
       <!-- Etiqueta th:object y th:field -->
-      <h2>Etiqueta th:object y th:field (para formularios)</h2>
-      <p>Las etiquetas <code>th:object</code> y <code>th:field</code> se utilizan para vincular campos de un formulario a propiedades de un objeto.</p>
+      <h2 id="th-object-field">Etiqueta th:object y th:field (para formularios)</h2>     
+       <p>Las etiquetas <code>th:object</code> y <code>th:field</code> se utilizan para vincular campos de un formulario a propiedades de un objeto.</p>
+
       <p>Ejemplo:</p>
       <pre><code>&lt;form th:object="${user}" th:action="@{/guardar}" method="post"&gt;
       &lt;label for="name"&gt;Nombre:&lt;/label&gt;
@@ -113,7 +120,7 @@
     
     
         <!-- Etiqueta th:selected -->
-        <h2>Etiqueta th:selected</h2>
+        <h2 id="th-selected">Etiqueta th:selected</h2>
         <p>La etiqueta <code>th:selected</code> se utiliza para seleccionar automáticamente una opción en un elemento <code>select</code> cuando se cumple una condición.</p>
         <p>Ejemplo:</p>
         <pre><code>&lt;select th:field="*{selectedOption}"&gt;
@@ -123,14 +130,14 @@
         &lt;/select&gt;</code></pre>
     
         <!-- Etiqueta th:class -->
-        <h2>Etiqueta th:class</h2>
+        <h2 id="th-class">Etiqueta th:class</h2>
         <p>La etiqueta <code>th:class</code> se utiliza para agregar clases CSS a un elemento HTML en función de una condición.</p>
         <p>Ejemplo:</p>
         <pre><code>&lt;div th:class="${condition} ? 'clase-activa' : 'clase-inactiva'"&gt;Elemento con clase dinámica&lt;/div&gt;</code></pre>
     
         <!-- Etiqueta th:style -->
-        <h2>Etiqueta th:style</h2>
-        <p>La etiqueta <code>th:style</code> se utiliza para aplicar estilos CSS a un elemento HTML en función de una condición.</p>
+        <h2 id="th-style">Etiqueta th:style</h2>
+              <p>La etiqueta <code>th:style</code> se utiliza para aplicar estilos CSS a un elemento HTML en función de una condición.</p>
         <p>Ejemplo:</p>
         <pre><code>&lt;div th:style="${condition} ? 'color: red;' : 'color: green;'"&gt;Texto con estilo dinámico&lt;/div&gt;</code></pre>
     
@@ -144,3 +151,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
