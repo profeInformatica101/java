@@ -5,40 +5,42 @@ if (isset($_POST['submit'])) {
     $methods = explode(',', $_POST['methods']);
     $generateGetSet = isset($_POST['generateGetSet']);
 
-    header('Content-Type: text/plain');
+    $code = ""; // Initialize code variable
 
-    // Print class
-    echo "public class " . $className . " {\n";
+    // Add to code variable
+    $code .= "public class " . $className . " {\n";
 
-    // Print attributes
     foreach ($attributes as $attribute) {
-        echo "    private String " . trim($attribute) . ";\n";
+        $code .= "    private String " . trim($attribute) . ";\n";
     }
 
-    // Print getters and setters
     if ($generateGetSet) {
         foreach ($attributes as $attribute) {
             $attribute = trim($attribute);
 
-            // Getter
-            echo "\n    public String get" . ucfirst($attribute) . "() {\n";
-            echo "        return this." . $attribute . ";\n";
-            echo "    }\n";
+            $code .= "\n    public String get" . ucfirst($attribute) . "() {\n";
+            $code .= "        return this." . $attribute . ";\n";
+            $code .= "    }\n";
 
-            // Setter
-            echo "\n    public void set" . ucfirst($attribute) . "(String " . $attribute . ") {\n";
-            echo "        this." . $attribute . " = " . $attribute . ";\n";
-            echo "    }\n";
+            $code .= "\n    public void set" . ucfirst($attribute) . "(String " . $attribute . ") {\n";
+            $code .= "        this." . $attribute . " = " . $attribute . ";\n";
+            $code .= "    }\n";
         }
     }
 
-    // Print methods
     foreach ($methods as $method) {
-        echo "\n    public void " . trim($method) . "() {\n";
-        echo "        // TODO: Implement " . trim($method) . "\n";
-        echo "    }\n";
+        $code .= "\n    public void " . trim($method) . "() {\n";
+        $code .= "        // TODO: Implement " . trim($method) . "\n";
+        $code .= "    }\n";
     }
 
-    echo "}\n";
+    $code .= "}\n";
+
+    // Send the code as a downloadable file
+    header('Content-Type: text/plain');
+    header('Content-Disposition: attachment; filename="' . $className . '.java"');
+    echo $code;
+    exit;
 }
 ?>
+
