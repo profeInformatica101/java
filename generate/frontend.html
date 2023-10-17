@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Clases PHP</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <form action="http://192.168.43.68/mi_proyecto/server.php" method="POST">
+        <div class="form-group">
+            <label for="className">Nombre de la Clase:</label>
+            <input type="text" class="form-control" id="className" name="className" required>
+        </div>
+
+        <div class="form-group">
+            <label for="attributes">Atributos (separados por coma):</label>
+            <input type="text" class="form-control" id="attributes" name="attributes" placeholder="atributo1, atributo2, ...">
+        </div>
+
+        <div class="form-group">
+            <label for="methods">Métodos (separados por coma):</label>
+            <input type="text" class="form-control" id="methods" name="methods" placeholder="metodo1, metodo2, ...">
+        </div>
+
+        <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" id="generateGetSet" name="generateGetSet">
+            <label class="form-check-label" for="generateGetSet">Generar getters y setters</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" name="submit">Enviar</button>
+    </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
